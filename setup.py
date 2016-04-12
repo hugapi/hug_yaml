@@ -82,7 +82,7 @@ except (IOError, ImportError, OSError, RuntimeError):
    readme = ''
 
 setup(name='hug_yaml',
-      version='0.0.1',
+      version='1.0.0',
       description='An extension for hug that provides YAML input formats, output formats, and documentation.',
       long_description=readme,
       author='Timothy Crosley',

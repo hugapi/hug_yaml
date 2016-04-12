@@ -20,10 +20,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 """
 from collections import namedtuple
+from decimal import Decimal
 from io import BytesIO
 
 from hug_yaml import output_format
-from decimal import Decimal
 
 name = namedtuple('Name', ('name', ))
 

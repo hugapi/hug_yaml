@@ -1,7 +1,7 @@
 """Tests hug_yaml's YAML formatted documentation support"""
 import hug
-from hug_yaml import output_format
-from hug_yaml import not_found
+
+from hug_yaml import not_found, output_format
 
 api = hug.API(__name__)
 api.extend(not_found)
@@ -30,4 +30,3 @@ def test_not_found():
             "        content_type: application/json\n"
             "        format: JSON (Javascript Serialized Object Notation)\n"
             "overview: Tests hug_yaml's YAML formatted documentation support\n")
-
