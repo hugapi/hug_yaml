@@ -89,14 +89,9 @@ setup(name='hug_yaml',
       author_email='timothy.crosley@gmail.com',
       url='https://github.com/timothycrosley/hug_yaml',
       license="MIT",
-      # entry_points={
-      #  'console_scripts': [
-      #      'hug_yaml = hug_yaml:run.terminal',
-      #  ]
-      #},
       packages=['hug_yaml'],
-      requires=[],
-      install_requires=[],
+      requires=['PyYAML', 'hug'],
+      install_requires=['PyYAML', 'hug'],
       cmdclass=cmdclass,
       ext_modules=ext_modules,
       keywords='Python, Python3',
