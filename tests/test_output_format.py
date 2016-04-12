@@ -1,8 +1,8 @@
-"""hug_yaml/hug_yaml.py
+"""tests/test_output_format.py.
 
-An extension for hug that provides YAML input formats, output formats, and documentation.
+Tests outputting Python data structures to YAML
 
-Copyright (C) 2016  Timothy Edmund Crosley
+Copyright (C) 2016 Timothy Edmund Crosley
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -19,3 +19,20 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
+from collections import namedtuple
+from io import BytesIO
+
+from hug_yaml import output_format
+from decimal import Decimal
+
+name = namedtuple('Name', ('name', ))
+
+
+def test_yaml():
+    """Test to ensure yaml output_format works as expected"""
+    assert output_format.yaml({'hi': 'there'}) == b'hi: there\n'
+    assert output_format.yaml(name('tim')) == b'name: tim\n'
+    assert output_format.yaml({'one': Decimal(1)}) == b"one: '1'\n"
+
+    stream = BytesIO(b'hi: there\n')
+    assert output_format.yaml(stream) == stream

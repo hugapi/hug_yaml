@@ -1,6 +1,6 @@
-"""tests/test_hug_yaml.py.
+"""tests/test_input_format.py.
 
-Tests the Python3 implementation of hug_yaml
+Tests inputting YAML into Python data structures
 
 Copyright (C) 2016 Timothy Edmund Crosley
 
@@ -19,11 +19,21 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
-import pytest
+from io import BytesIO
 
-import hug_yaml
+from hug_yaml import input_format
 
 
-def test_hug_yaml():
-    """Test to ensure hug_yaml works as expected"""
-    assert hug_yaml
+def test_convert():
+    """Test to ensure yaml input_format.convert works as expected"""
+    assert input_format.convert(BytesIO(b'hi: there\n')) == {'hi': 'there'}
+
+
+def test_application_yaml():
+    """Test to ensure yaml input_format.application_yaml works as expected"""
+    assert input_format.application_yaml(BytesIO(b'hi: there\n')) == {'hi': 'there'}
+
+
+def test_text_yaml():
+    """Test to ensure yaml input_format.text_yaml works as expected"""
+    assert input_format.text_yaml(BytesIO(b'hi: there\n')) == {'hi': 'there'}

@@ -1,8 +1,8 @@
-"""hug_yaml/__init__.py
+"""hug_yaml/not_found.py
 
-An extension for hug that provides YAML input formats, output formats, and documentation.
+YAML documentation output for hug 404 page
 
-Copyright (C) 2016  Timothy Edmund Crosley
+Copyright (C) 2016 Timothy Edmund Crosley
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -19,8 +19,12 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
-from hug_yaml._version import current
-from hug_yaml.input_format import text_yaml as input
-from hug_yaml.output_format import yaml as output
+import hug
 
-__version__ = current
+from hug_yaml import output_format
+
+
+@hug.not_found(output=output_format.yaml)
+def documentation(hug_api, hug_api_version):
+    """Provides a replacement not_found handler that returns YAML formatted data"""
+    return hug_api.http.documentation(api_version=hug_api_version)
