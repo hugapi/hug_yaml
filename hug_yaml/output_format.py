@@ -19,12 +19,13 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OTHER DEALINGS IN THE SOFTWARE.
 
 """
-import types
-import hug
 import decimal
-import yaml
-from yaml import dump, SafeDumper, ScalarNode, representer, MappingNode
+import types
 from collections import OrderedDict
+
+import hug
+import yaml
+from yaml import MappingNode, SafeDumper, ScalarNode, dump, representer
 
 
 class SafeDumper(SafeDumper):
