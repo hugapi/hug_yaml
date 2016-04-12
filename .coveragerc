@@ -1,0 +1,3 @@
+[report]
+include = hug_yaml/*.py
+exclude_lines = if __name__ == .__main__.:
