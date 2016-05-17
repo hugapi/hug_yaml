@@ -23,18 +23,18 @@ import hug
 import yaml
 
 
-def convert(data, encoding='utf-8', safe=True):
+def convert(data, charset='utf-8', safe=True):
     """Converts the YAML data into a Python Data structure: if safe is set to False YAML object loading is possible"""
-    return (yaml.safe_load if safe else yaml.load)(data.read().decode(encoding))
+    return (yaml.safe_load if safe else yaml.load)(data.read().decode(charset))
 
 
 @hug.default_input_format('text/yaml')
-def text_yaml(data, encoding='utf-8'):
+def text_yaml(data, **kwargs):
     """Converts a `text/yaml` YAML request into a Python Data structure"""
-    return convert(data, encoding)
+    return convert(data, **kwargs)
 
 
 @hug.default_input_format('application/x-yaml')
-def application_yaml(data, encoding='utf-8'):
+def application_yaml(data, **kwargs):
     """Converts an `application/x-yaml` YAML request into a Python Data structure"""
-    return convert(data, encoding)
+    return convert(data, **kwargs)

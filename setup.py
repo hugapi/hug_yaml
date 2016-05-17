@@ -82,7 +82,7 @@ except (IOError, ImportError, OSError, RuntimeError):
    readme = ''
 
 setup(name='hug_yaml',
-      version='1.0.0',
+      version='1.1.0',
       description='An extension for hug that provides YAML input formats, output formats, and documentation.',
       long_description=readme,
       author='Timothy Crosley',
@@ -91,7 +91,7 @@ setup(name='hug_yaml',
       license="MIT",
       packages=['hug_yaml'],
       requires=['PyYAML', 'hug'],
-      install_requires=['PyYAML', 'hug'],
+      install_requires=['PyYAML', 'hug>=2.1.0'],
       cmdclass=cmdclass,
       ext_modules=ext_modules,
       keywords='Python, Python3',

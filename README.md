@@ -13,7 +13,7 @@ An extension for hug that provides YAML input formats, output formats, and docum
 import hug
 import hug_yaml
 
-hug.API(__name__).extend(input_format)
+hug.API(__name__).extend(hug_yaml.input_format)
 
 
 @hug.not_found(output=hug_yaml.output)
