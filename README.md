@@ -18,7 +18,7 @@ hug.API(__name__).extend(hug_yaml.input_format)
 
 @hug.not_found(output=hug_yaml.output)
 def documentation(hug_api, hug_api_version):
-    return hug_yaml.not_found.documentation(hug_api, hug_api_version)
+    return hug_api.http.documentation(hug_api, hug_api_version)
 ```
 
 Installing hug_yaml
