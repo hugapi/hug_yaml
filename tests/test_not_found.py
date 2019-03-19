@@ -27,6 +27,6 @@ def test_not_found():
             "      examples:\n"
             "      - /hello\n"
             "      outputs:\n"
-            "        content_type: application/json\n"
+            "        content_type: application/json; charset=utf-8\n"
             "        format: JSON (Javascript Serialized Object Notation)\n"
             "overview: Tests hug_yaml's YAML formatted documentation support\n")
